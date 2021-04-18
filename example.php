@@ -9,4 +9,6 @@ $imagesApi = new \src\Apis\ImagesApi(
     )
 );
 
-print_r($imagesApi->search());
+$categoriesApi = new src\Apis\CategoriesApi(new \src\Clients\GuzzleAdapter());
+
+print_r($categoriesApi->list());
