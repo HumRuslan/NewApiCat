@@ -20,4 +20,18 @@ class FacadeTest extends TestCase
 
         $this->assertInstanceOf(ImagesApi::class, $facade->images());
     }
+    
+    /**
+     * @test
+     */
+    public function we_throw_exception()
+    {
+        $client = $this->createMock(HttpClientInterface::class);
+
+        $facade = new ApiFacade($client);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $facade->categories();
+    }
 }
