@@ -9,6 +9,9 @@ require_once './vendor/autoload.php';
 //    )
 //);
 
+$facade = new \src\ApiFacade(new \src\Clients\GuzzleAdapter());
+print_r($facade->images()->search(10, 0));
+
 $categoriesApi = new src\Apis\CategoriesApi(
     new \src\Decorator\MiddleDecorator(
         new \src\Clients\GuzzleAdapter()
